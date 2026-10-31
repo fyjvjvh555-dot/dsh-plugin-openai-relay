@@ -1,7 +1,7 @@
 {
   "name": "dsh-plugin-openai-relay",
   "version": "0.2.0",
-  "description": "One-stop relay (中转站) setup for DeepSeek Harness: an OpenAI-compatible chat provider plus a /relay-setup page that stores your chat and image keys and points dsh-image-gen at the same endpoint — install, paste keys, done.",
+  "description": "在 DeepSeek Harness 里一键接入中转站：打开 /relay-setup 页面填好对话、生图两个密钥和中转站地址即可用；对话自动注册为 OpenAI Relay 模型分组，生图自动接到 dsh-image-gen 通道，全程不用改配置文件。",
   "type": "module",
   "main": "lib/index.js",
   "files": [
