@@ -17,7 +17,8 @@ One package does both halves:
 
 1. **Install** — pick one:
    - from the DSH plugin marketplace, search `dsh-plugin-openai-relay`;
-   - or `dsh plugin --profile <your profile> add dsh-plugin-openai-relay`;
+   - `dsh plugin --profile <your profile> add dsh-plugin-openai-relay`;
+   - straight from GitHub (no npm needed): `dsh plugin --profile <your profile> add github:fyjvjvh555-dot/dsh-plugin-openai-relay`;
    - the installer appends `dsh-plugin-openai-relay` to `dsh.profile.bundles` automatically (only a manual `node_modules` copy needs it done by hand).
 2. **Restart DSH** once, so the plugin loads.
 3. **Open the setup page** — take the DSH address from your browser and append `/relay-setup`, e.g.

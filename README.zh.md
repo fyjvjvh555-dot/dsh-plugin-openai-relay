@@ -17,7 +17,8 @@
 
 1. **安装插件**（任选一种）
    - DSH 插件市场里搜 `dsh-plugin-openai-relay` 点安装；
-   - 或命令行：`dsh plugin --profile <你的 profile> add dsh-plugin-openai-relay`；
+   - 命令行：`dsh plugin --profile <你的 profile> add dsh-plugin-openai-relay`；
+   - 直接从 GitHub 装（不用等 npm）：`dsh plugin --profile <你的 profile> add github:fyjvjvh555-dot/dsh-plugin-openai-relay`；
    - 安装器会自动把 `dsh-plugin-openai-relay` 写进 profile 的 `dsh.profile.bundles`（只有手工拷 `node_modules` 时才需要自己加）。
 2. **重启 DSH**（首次加载插件需要）。
 3. **打开配置页**：在浏览器里把 DSH 的地址后面接上 `/relay-setup`，例如
