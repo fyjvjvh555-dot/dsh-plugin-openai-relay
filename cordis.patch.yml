@@ -1,0 +1,108 @@
+# dsh-plugin-openai-relay: a bundle patch for DeepSeek Harness.
+#
+# It inserts ONE row: this package's own cordis plugin, which registers the
+# `openai-relay` provider route on the `llm` service. The adapter speaks the
+# plain OpenAI Chat Completions wire protocol (SSE), so any OpenAI-compatible
+# relay / gateway works. It never touches the profile's existing `llm-pi-ai`
+# row, so your DeepSeek and other providers keep working exactly as before.
+#
+# Defaults below target APIKEY.FAN. A different relay? Copy this row into your
+# profile's `cordis.patch.yml` with the same id and replace the whole `config`
+# block (a patch replaces the targeted row's config; it does not merge):
+#
+#   - id: dsh-plugin-openai-relay
+#     name: dsh-plugin-openai-relay
+#     config:
+#       displayName: My Relay
+#       baseURL: https://my-relay.example.com/v1
+#       apiKeyEnv: MY_RELAY_KEY
+#       models:
+#         - id: my-model
+#           name: My Model
+#           contextWindow: 128000
+#           maxTokens: 8192
+#           input: [ text ]
+#           reasoningEfforts:
+#             off:
+#             low: low
+#             high: high
+#
+# The API key itself never lives here: `apiKeyEnv` names an environment
+# variable (or a credential stored through the /relay-setup page).
+#
+# NOTE: the `id:` line below must stay exactly as written and must never carry
+# a trailing comment, because the DSH STORE submission check parses that line.
+- insert:
+    - id: dsh-plugin-openai-relay
+      name: dsh-plugin-openai-relay
+      config:
+        displayName: OpenAI Relay
+        baseURL: https://api.apikey.fan/v1
+        apiKeyEnv: APIKEY_FAN_KEY
+        models:
+          - id: gpt-6.1-sol
+            name: GPT-6.1 Sol (relay)
+            contextWindow: 500000
+            maxTokens: 32768
+            input: [ text ]
+            reasoningEfforts:
+              off:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: gpt-6.1-terra
+            name: GPT-6.1 Terra (relay)
+            contextWindow: 500000
+            maxTokens: 32768
+            input: [ text ]
+            reasoningEfforts:
+              off:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: gpt-6-sol
+            name: GPT-6 Sol (relay)
+            contextWindow: 272000
+            maxTokens: 32768
+            input: [ text ]
+            reasoningEfforts:
+              off:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: gpt-6-astra
+            name: GPT-6 Astra (relay)
+            contextWindow: 272000
+            maxTokens: 32768
+            input: [ text ]
+            reasoningEfforts:
+              off:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: gpt-5.6-sol
+            name: GPT-5.6 Sol (relay)
+            contextWindow: 272000
+            maxTokens: 32768
+            input: [ text ]
+            reasoningEfforts:
+              off:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high
+          - id: gpt-5.6-terra
+            name: GPT-5.6 Terra (relay)
+            contextWindow: 272000
+            maxTokens: 32768
+            input: [ text ]
+            reasoningEfforts:
+              off:
+              minimal: minimal
+              low: low
+              medium: medium
+              high: high

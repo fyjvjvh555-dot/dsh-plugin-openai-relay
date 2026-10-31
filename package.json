@@ -1,0 +1,42 @@
+{
+  "name": "dsh-plugin-openai-relay",
+  "version": "0.2.0",
+  "description": "One-stop relay (中转站) setup for DeepSeek Harness: an OpenAI-compatible chat provider plus a /relay-setup page that stores your chat and image keys and points dsh-image-gen at the same endpoint — install, paste keys, done.",
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "openai",
+    "relay",
+    "provider",
+    "gpt",
+    "image-generation",
+    "apikey-fan"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    }
+  },
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
